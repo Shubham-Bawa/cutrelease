@@ -8,17 +8,23 @@ on:
     branches: [ "main" ]
   workflow_dispatch:
     inputs:
-      varribe1:
-        description: 'this variable is for input'
-        type: string
-        required: true
-        default: 'hello'
-      check:
-        description: 't'
+      install-tomcat-Server:
+        description: 'install-Server'
         type: boolean
         required: true
-
-
+      configuration-setup:
+        description: 'configuration-setup'
+        type: boolean
+        required: true
+      Deploy-latest-code:
+        description: 'Deploy-latest-code'
+        type: boolean
+        required: true
+      restart-application:
+        description: 'restart-application'
+        type: boolean
+        required: true
+        
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -27,9 +33,16 @@ jobs:
         run: echo "value from the user" ${{ github.event.inputs.varribe1 }}
   control-job:
     runs-on: ubuntu-latest
-    if: ${{inputs.check == true }}
+    if: ${{install-tomcat-Server == true }}
     steps:
-      - name: Run a one-line script
-        run: echo "value from the user "
+      - name: install-tomcat-server
+        run: echo "nstalling tomcat server"
+  Deploy-latest-code:
+    runs-on: ubuntu-latest    
+    if: ${{Deploy-latest-code == true }}
+    steps:
+      - name: configuration-setup
+        run: echo "configuration-setup"
+  
 
       
