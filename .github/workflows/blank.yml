@@ -14,10 +14,9 @@ on:
         required: true
         default: 'hello'
       check:
-        description: 'this variable is for input'
+        description: 't'
         type: boolean
         required: true
-        default: false
 
 
 jobs:
