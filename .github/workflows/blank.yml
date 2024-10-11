@@ -33,13 +33,13 @@ jobs:
         run: echo "value from the user" ${{ github.event.inputs.varribe1 }}
   control-job:
     runs-on: ubuntu-latest
-    if: ${{install-tomcat-Server == true }}
+    if: ${{inputs.install-tomcat-Server }}
     steps:
       - name: install-tomcat-server
         run: echo "nstalling tomcat server"
   Deploy-latest-code:
     runs-on: ubuntu-latest    
-    if: ${{Deploy-latest-code == true }}
+    if: ${{inputs.Deploy-latest-code }}
     steps:
       - name: configuration-setup
         run: echo "configuration-setup"
