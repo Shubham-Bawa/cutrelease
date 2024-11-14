@@ -4,6 +4,16 @@ name: CI
 
 # Controls when the workflow will run
 on:
+  workflow_call:
+    inputs:
+      name:
+        description: " Name of caller "
+        required: true
+        type: string
+      contactnumber:
+        description: " contact number of caller "
+        required: true
+        type: string
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
     branches: [ "main" ]
@@ -27,7 +37,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: echo Hello, world!
+        run: echo you are geeting call from ${{inputs.name}} and contanct number is ${{inputs.contactnumber}}
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
