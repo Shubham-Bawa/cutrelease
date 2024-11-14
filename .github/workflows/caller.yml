@@ -26,6 +26,6 @@ jobs:
       - name: calling
         uses: ./.github/workflows/reciver.yml
         with:
-          name: shubham
-          contactnumber: 12345678
+          name: "shubham"
+          contactnumber: "12345678"
       
